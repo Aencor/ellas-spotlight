@@ -28,26 +28,41 @@ document.addEventListener('DOMContentLoaded', () => {
         title: "Ellas en el Spotlight",
         description: "Proyecto artístico y social diseñado para abrir conversación desde la empatía. Arte, conciencia y comunidad.",
         location: "Academia Escorpio Montagge",
-        // For demonstration, setting a generic date a month from now. 
-        // In a real scenario, these would be precise event dates.
-        startDate: new Date(new Date().setMonth(new Date().getMonth() + 1)),
-        endDate: new Date(new Date().setMonth(new Date().getMonth() + 1, new Date().getDate(), new Date().getHours() + 4)),
       };
+
+      const date1Start = new Date("2026-03-15T18:00:00");
+      const date1End = new Date("2026-03-15T22:00:00");
+
+      const date2Start = new Date("2026-03-22T18:00:00");
+      const date2End = new Date("2026-03-22T22:00:00");
 
       const formatDate = (date) => {
         return date.toISOString().replace(/-|:|\.\d+/g, '').substring(0, 15) + 'Z';
       };
 
+      const nowFormatted = formatDate(new Date());
+
       const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
         'PRODID:-//Escorpio Montagge//Ellas en el Spotlight//ES',
+        // Event 1
         'BEGIN:VEVENT',
-        `UID:${new Date().getTime()}@escorpiomontagge.com`,
-        `DTSTAMP:${formatDate(new Date())}`,
-        `DTSTART:${formatDate(eventData.startDate)}`,
-        `DTEND:${formatDate(eventData.endDate)}`,
-        `SUMMARY:${eventData.title}`,
+        `UID:event1_${new Date().getTime()}@escorpiomontagge.com`,
+        `DTSTAMP:${nowFormatted}`,
+        `DTSTART:${formatDate(date1Start)}`,
+        `DTEND:${formatDate(date1End)}`,
+        `SUMMARY:${eventData.title} (Sesión 1)`,
+        `DESCRIPTION:${eventData.description}`,
+        `LOCATION:${eventData.location}`,
+        'END:VEVENT',
+        // Event 2
+        'BEGIN:VEVENT',
+        `UID:event2_${new Date().getTime()}@escorpiomontagge.com`,
+        `DTSTAMP:${nowFormatted}`,
+        `DTSTART:${formatDate(date2Start)}`,
+        `DTEND:${formatDate(date2End)}`,
+        `SUMMARY:${eventData.title} (Sesión 2)`,
         `DESCRIPTION:${eventData.description}`,
         `LOCATION:${eventData.location}`,
         'END:VEVENT',

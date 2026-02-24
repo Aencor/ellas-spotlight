@@ -111,6 +111,7 @@ span.gold-text, h1 span, h2 span {
     text-align: center;
     padding: 2rem;
     position: relative;
+    background: linear-gradient(rgba(15, 11, 21, 0.7), rgba(15, 11, 21, 0.95)), url('../public/hero-bg.jpg') no-repeat center center/cover;
 }
 
 .hero .logo {
@@ -188,6 +189,17 @@ span.gold-text, h1 span, h2 span {
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
 /* Scroll indicator */
